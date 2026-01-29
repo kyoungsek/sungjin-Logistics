@@ -77,7 +77,7 @@ const Footer: React.FC = () => {
             <div className="space-y-4 text-xs leading-relaxed">
               <div className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-slate-600 shrink-0" />
-                <span>경기도 군포시 도마교동 25번길 44, 1층</span>
+                <span>경기도 군포시 송부로 25번길 44, 1층</span>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-slate-600 shrink-0" />
@@ -134,8 +134,8 @@ const Footer: React.FC = () => {
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 border-t border-white/5 pt-12">
           <div className="text-[10px] text-slate-600">
-            대표이사: 황동환 | 사업자등록번호: 123-45-67890 | 통신판매업신고: 2024-경기군포-0001<br />
-            본사: 경기도 군포시 도마교동 25번길 44, 1층 | © 2026 Sungjin Logistics Co., Ltd.
+            대표이사: 황동환 | 사업자등록번호: 140-81-99718 | 통신판매업신고: 2024-경기군포-0001<br />
+            본사: 경기도 군포시 송부로 25번길 44, 1층 | © 2026 Sungjin Logistics Co., Ltd.
           </div>
           <div className="flex gap-4">
             <a href="#" className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors text-white"><Facebook className="w-4 h-4" /></a>
@@ -304,7 +304,7 @@ const Footer: React.FC = () => {
                      <div className="bg-slate-100 rounded-3xl h-48 flex items-center justify-center border border-slate-200 overflow-hidden relative">
                         <div className="absolute inset-0 bg-blue-50/50 flex flex-col items-center justify-center text-center p-4">
                            <MapPin className="w-10 h-10 text-blue-600 mb-2" />
-                           <p className="font-bold text-slate-800">경기도 군포시 도마교동 25번길 44, 1층</p>
+                           <p className="font-bold text-slate-800">경기도 군포시 송부로 25번길 44, 1층</p>
                            <p className="text-xs text-slate-500 mt-1">(군포 송정지구 내 성진물류 본사)</p>
                         </div>
                      </div>
