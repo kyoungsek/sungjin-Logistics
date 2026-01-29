@@ -1,0 +1,844 @@
+<html lang="ko" class="scroll-smooth">
+    <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>주식회사 성진물류 | 혁신적인 물류 솔루션</title>
+<meta name="description" content="고객의 비즈니스 성공을 위한 신속하고 정확한 물류 서비스를 제공합니다.">
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<!-- Added Noto Sans KR for Korean support -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Poppins:wght@500;600;700&amp;family=Noto+Sans+KR:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<!-- Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+// Existing Palette (Blue fits logistics perfectly)
+surface: '#F8FAFC', // Slate 50
+surfaceHighlight: '#EFF6FF', // Blue 50
+primary: '#2563EB', // Blue 600
+primaryDark: '#1D4ED8', // Blue 700
+accent: '#06B6D4', // Cyan 500
+dark: '#0F172A', // Slate 900
+darkText: '#1E293B', // Slate 800
+muted: '#64748B', // Slate 500
+border: '#E2E8F0', // Slate 200
+},
+fontFamily: {
+sans: ['Noto Sans KR', 'Inter', 'sans-serif'], // Updated for Korean
+heading: ['Poppins', 'Noto Sans KR', 'sans-serif'],
+},
+boxShadow: {
+'soft': '0 10px 40px -10px rgba(37, 99, 235, 0.1)',
+'lift': '0 20px 40px -15px rgba(37, 99, 235, 0.15)',
+'glow': '0 0 20px rgba(6, 182, 212, 0.15)',
+},
+backgroundImage: {
+'hero-gradient': 'linear-gradient(135deg, #EFF6FF 0%, #FFFFFF 100%)',
+}
+}
+}
+}
+</script>
+<style>
+/* Custom Styles & Resets */
+body {
+background-color: #F8FAFC;
+color: #0F172A;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+word-break: keep-all; /* Better for Korean line breaks */
+}
+/* Floating Label Logic */
+.input-group {
+position: relative;
+}
+.input-field {
+width: 100%;
+border: 1px solid #E2E8F0;
+background: #FFFFFF;
+padding: 1rem 0.75rem 0.5rem;
+border-radius: 0.5rem;
+outline: none;
+transition: all 0.2s ease;
+font-size: 0.95rem;
+color: #1E293B;
+}
+.input-field:focus {
+border-color: #2563EB;
+box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+.input-label {
+position: absolute;
+left: 0.75rem;
+top: 0.8rem;
+color: #64748B;
+font-size: 0.95rem;
+pointer-events: none;
+transition: all 0.2s ease;
+}
+.input-field:focus ~ .input-label,
+.input-field:not(:placeholder-shown) ~ .input-label {
+top: 0.2rem;
+font-size: 0.7rem;
+color: #2563EB;
+font-weight: 500;
+}
+/* Animation Utilities */
+.reveal-on-scroll {
+opacity: 0;
+transform: translateY(20px);
+transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-on-scroll.is-visible {
+opacity: 1;
+transform: translateY(0);
+}
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+width: 8px;
+}
+::-webkit-scrollbar-track {
+background: #F8FAFC;
+}
+::-webkit-scrollbar-thumb {
+background: #CBD5E1;
+border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+background: #2563EB;
+}
+/* Custom Dropdown Styling */
+.custom-select-wrapper {
+position: relative;
+cursor: pointer;
+}
+.custom-select-trigger {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 1rem 0.75rem;
+border: 1px solid #E2E8F0;
+border-radius: 0.5rem;
+background: #FFFFFF;
+transition: all 0.2s;
+}
+.custom-select-options {
+position: absolute;
+top: 110%;
+left: 0;
+right: 0;
+background: #fff;
+border: 1px solid #E2E8F0;
+border-radius: 0.5rem;
+box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+opacity: 0;
+visibility: hidden;
+transform: translateY(-10px);
+transition: all 0.2s;
+z-index: 20;
+}
+.custom-select-wrapper.open .custom-select-options {
+opacity: 1;
+visibility: visible;
+transform: translateY(0);
+}
+.custom-option {
+padding: 0.75rem;
+transition: background 0.2s;
+}
+.custom-option:hover {
+background: #EFF6FF;
+color: #2563EB;
+}
+/* Hide Number Input Arrows */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+</style>
+</head>
+
+<body class="font-sans antialiased text-darkText bg-surface overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300 bg-white/80 backdrop-blur-md border-b border-border" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center text-white shadow-lg shadow-primary/30 group-hover:scale-110 transition-transform duration-300">
+                    <!-- Icon changed to Box/Package for Logistics -->
+                    <i data-lucide="package" class="w-5 h-5"></i>
+                </div>
+                <span class="font-heading font-bold text-xl tracking-tight text-dark">SUNGJIN<span class="text-primary">LOGIS</span></span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-muted">
+                <a href="#home" class="hover:text-primary transition-colors">홈</a>
+                <a href="#about" class="hover:text-primary transition-colors">회사소개</a>
+                <a href="#services" class="hover:text-primary transition-colors">서비스</a>
+                <a href="#testimonials" class="hover:text-primary transition-colors">고객후기</a>
+            </div>
+
+            <div class="hidden md:flex">
+                <a href="#book" class="bg-dark text-white px-6 py-2.5 rounded-full text-sm font-medium hover:bg-primary transition-colors duration-300 shadow-lg shadow-dark/20 hover:shadow-primary/30 transform hover:-translate-y-0.5">
+                    견적 문의하기
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="md:hidden text-dark" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden absolute top-20 left-0 w-full bg-white border-b border-border p-6 flex flex-col gap-4 shadow-xl">
+            <a href="#home" class="text-lg font-medium text-dark">홈</a>
+            <a href="#about" class="text-lg font-medium text-dark">회사소개</a>
+            <a href="#services" class="text-lg font-medium text-dark">서비스</a>
+            <a href="#book" class="bg-primary text-white text-center py-3 rounded-lg font-medium">견적 문의</a>
+        </div>
+    </nav>
+
+    <!-- 1. Hero Section -->
+    <section id="home" class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-hero-gradient">
+        <!-- Abstract Decoration -->
+        <div class="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[800px] h-[800px] bg-gradient-to-br from-accent/10 to-primary/10 rounded-full blur-3xl -z-10"></div>
+        <div class="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-[600px] h-[600px] bg-gradient-to-tr from-blue-100 to-transparent rounded-full blur-3xl -z-10"></div>
+
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+            
+            <!-- Hero Content -->
+            <div class="relative z-10 reveal-on-scroll">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surfaceHighlight border border-primary/20 text-primary text-xs font-semibold mb-6 shadow-sm">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                    </span>
+                    24시간 배송 모니터링
+                </div>
+                <h1 class="font-heading font-semibold text-4xl lg:text-6xl tracking-tight leading-[1.2] mb-6 text-dark">
+                    비즈니스를 연결하는 <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">혁신적인 물류 솔루션</span>
+                </h1>
+                <p class="text-lg text-muted mb-8 max-w-lg leading-relaxed">
+                    성진물류는 최첨단 시스템과 글로벌 네트워크를 통해 귀사의 화물을 가장 빠르고 안전하게 운송합니다.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#book" class="bg-primary text-white px-8 py-3.5 rounded-full text-sm font-medium hover:bg-primaryDark transition-all duration-300 shadow-soft shadow-primary/30 text-center flex items-center justify-center gap-2">
+                        견적 요청하기 <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                    <a href="#services" class="bg-white border border-border text-darkText px-8 py-3.5 rounded-full text-sm font-medium hover:border-primary hover:text-primary transition-all duration-300 text-center shadow-sm">
+                        서비스 알아보기
+                    </a>
+                </div>
+                
+                <div class="mt-10 flex items-center gap-4 text-sm text-muted">
+                    <div class="flex -space-x-2">
+                        <!-- Changed to generic corporate avatars or just keep logic -->
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&amp;fit=crop&amp;w=64&amp;h=64" alt="Partner" class="w-8 h-8 rounded-full border-2 border-white object-cover shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1573496359-1508d476fbfd?auto=format&amp;fit=crop&amp;w=64&amp;h=64" alt="Partner" class="w-8 h-8 rounded-full border-2 border-white object-cover shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&amp;fit=crop&amp;w=64&amp;h=64" alt="Partner" class="w-8 h-8 rounded-full border-2 border-white object-cover shadow-sm">
+                    </div>
+                    <span><span class="text-primary font-semibold">1,200+</span> 기업 고객 신뢰</span>
+                </div>
+            </div>
+
+            <!-- Hero Image -->
+            <div class="relative reveal-on-scroll delay-200">
+                <div class="absolute inset-0 bg-gradient-to-br from-primary to-accent opacity-10 rounded-[2.5rem] transform rotate-3 scale-95 translate-y-4"></div>
+                <div class="relative rounded-[2.5rem] overflow-hidden shadow-2xl shadow-primary/10 h-[500px] group border border-white">
+                    <!-- Updated Image to Logistics Theme -->
+                    <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80" alt="Modern Logistics Warehouse" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000 ease-out">
+                    
+                    <!-- Floating Badge -->
+                    <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur rounded-xl p-4 shadow-lg flex items-center justify-between border border-white/50">
+                        <div class="flex items-center gap-3">
+                            <div class="bg-surfaceHighlight p-2 rounded-lg text-primary">
+                                <i data-lucide="shield-check" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-muted uppercase tracking-wider font-semibold">배송 정확도</p>
+                                <p class="font-heading font-semibold text-dark">99.9% 보장</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlights -->
+    <section class="py-12 bg-white border-b border-border">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <div class="p-6 rounded-2xl bg-surface hover:bg-surfaceHighlight transition-colors duration-300 border border-transparent hover:border-blue-100 group reveal-on-scroll">
+                    <div class="w-12 h-12 bg-white rounded-xl shadow-sm border border-border flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="truck" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-heading font-semibold text-dark mb-2">신속한 운송</h3>
+                    <p class="text-sm text-muted">최적화된 경로 설정을 통해 가장 빠른 배송 시간을 보장합니다.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="p-6 rounded-2xl bg-surface hover:bg-surfaceHighlight transition-colors duration-300 border border-transparent hover:border-blue-100 group reveal-on-scroll delay-100">
+                    <div class="w-12 h-12 bg-white rounded-xl shadow-sm border border-border flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="map" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-heading font-semibold text-dark mb-2">실시간 관제</h3>
+                    <p class="text-sm text-muted">GPS 기반 화물 추적 시스템으로 이동 경로를 실시간 공유합니다.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="p-6 rounded-2xl bg-surface hover:bg-surfaceHighlight transition-colors duration-300 border border-transparent hover:border-blue-100 group reveal-on-scroll delay-200">
+                    <div class="w-12 h-12 bg-white rounded-xl shadow-sm border border-border flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="package-check" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-heading font-semibold text-dark mb-2">안전 보관</h3>
+                    <p class="text-sm text-muted">온/습도 조절이 가능한 최신식 스마트 물류 창고를 운영합니다.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="p-6 rounded-2xl bg-surface hover:bg-surfaceHighlight transition-colors duration-300 border border-transparent hover:border-blue-100 group reveal-on-scroll delay-300">
+                    <div class="w-12 h-12 bg-white rounded-xl shadow-sm border border-border flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="globe-2" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-heading font-semibold text-dark mb-2">글로벌 네트워크</h3>
+                    <p class="text-sm text-muted">전 세계 주요 거점 파트너십을 통한 원스톱 수출입 물류.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. About Section -->
+    <section id="about" class="py-24 bg-surface">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-16 items-center">
+                
+                <!-- Images -->
+                <div class="lg:w-1/2 relative reveal-on-scroll">
+                    <div class="grid grid-cols-2 gap-4">
+                        <!-- Logistics Images -->
+                        <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&amp;fit=crop&amp;w=800&amp;q=80" class="rounded-2xl object-cover h-64 w-full shadow-lg transform translate-y-8">
+                        <img src="https://images.unsplash.com/photo-1566576912906-254336f0e13d?auto=format&amp;fit=crop&amp;w=600&amp;q=80" class="rounded-2xl object-cover h-64 w-full shadow-lg">
+                    </div>
+                    <!-- Experience Badge -->
+                    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-dark text-white p-6 rounded-full w-32 h-32 flex flex-col items-center justify-center shadow-xl border-4 border-surface">
+                        <span class="font-heading font-bold text-3xl text-accent">15+</span>
+                        <span class="text-xs text-center leading-tight opacity-80">년의 역사</span>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div class="lg:w-1/2 reveal-on-scroll delay-100">
+                    <span class="text-primary font-medium tracking-wide text-sm uppercase mb-2 block">회사 소개</span>
+                    <h2 class="font-heading font-semibold text-3xl lg:text-4xl text-dark mb-6 tracking-tight">
+                        고객의 신뢰를 운송하는 <br><span class="text-primary">성진물류</span>
+                    </h2>
+                    <p class="text-muted mb-6 leading-relaxed">
+                        성진물류는 단순한 화물 운송을 넘어, 고객사의 Supply Chain 전반을 최적화하는 통합 물류 파트너입니다. 15년의 현장 경험과 데이터 기반 시스템으로 물류비 절감과 효율성 증대를 약속합니다.
+                    </p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-accent mt-0.5"></i>
+                            <div>
+                                <h4 class="font-medium text-dark">미션 (Mission)</h4>
+                                <p class="text-sm text-muted">안전하고 신속한 물류로 고객의 비즈니스 가치를 높입니다.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <i data-lucide="check-circle-2" class="w-5 h-5 text-accent mt-0.5"></i>
+                            <div>
+                                <h4 class="font-medium text-dark">기술력 (Technology)</h4>
+                                <p class="text-sm text-muted">자체 개발 WMS/TMS 시스템을 통한 투명한 물류 관리.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#book" class="text-primary font-medium hover:text-dark transition-colors inline-flex items-center gap-2 group">
+                        전문가 상담하기 <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Services Section -->
+    <section id="services" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal-on-scroll">
+                <span class="text-primary font-medium tracking-wide text-sm uppercase mb-2 block">핵심 사업 영역</span>
+                <h2 class="font-heading font-semibold text-3xl lg:text-4xl text-dark mb-4 tracking-tight">종합 물류 서비스</h2>
+                <p class="text-muted">육상, 해상, 항공을 아우르는 원스톱 솔루션을 제공합니다.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-surface rounded-2xl p-2 shadow-sm border border-border hover:shadow-lift hover:border-primary/20 transition-all duration-300 group reveal-on-scroll">
+                    <div class="overflow-hidden rounded-xl h-48 mb-4 relative">
+                        <div class="absolute inset-0 bg-dark/20 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Freight Transport" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="px-4 pb-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-heading font-semibold text-lg text-dark">화물 운송 (Transport)</h3>
+                            <i data-lucide="truck" class="w-5 h-5 text-primary"></i>
+                        </div>
+                        <p class="text-sm text-muted mb-4">전국 네트워크를 기반으로 한 신속한 육상 운송 서비스.</p>
+                        <a href="#book" class="text-xs font-medium text-primary uppercase tracking-wider hover:text-dark transition-colors">상세 문의</a>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-surface rounded-2xl p-2 shadow-sm border border-border hover:shadow-lift hover:border-primary/20 transition-all duration-300 group reveal-on-scroll delay-100">
+                    <div class="overflow-hidden rounded-xl h-48 mb-4 relative">
+                        <div class="absolute inset-0 bg-dark/20 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1580674285054-bed31e140f07?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Warehousing" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="px-4 pb-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-heading font-semibold text-lg text-dark">3PL / 풀필먼트</h3>
+                            <i data-lucide="package" class="w-5 h-5 text-primary"></i>
+                        </div>
+                        <p class="text-sm text-muted mb-4">입고부터 포장, 배송, 반품까지 책임지는 통합 물류 대행.</p>
+                        <a href="#book" class="text-xs font-medium text-primary uppercase tracking-wider hover:text-dark transition-colors">상세 문의</a>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-surface rounded-2xl p-2 shadow-sm border border-border hover:shadow-lift hover:border-primary/20 transition-all duration-300 group reveal-on-scroll delay-200">
+                    <div class="overflow-hidden rounded-xl h-48 mb-4 relative">
+                        <div class="absolute inset-0 bg-dark/20 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1494412651409-ae173120a599?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Global Shipping" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="px-4 pb-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-heading font-semibold text-lg text-dark">해상/항공 수출입</h3>
+                            <i data-lucide="ship" class="w-5 h-5 text-primary"></i>
+                        </div>
+                        <p class="text-sm text-muted mb-4">전 세계 주요 항만과 공항을 연결하는 포워딩 서비스.</p>
+                        <a href="#book" class="text-xs font-medium text-primary uppercase tracking-wider hover:text-dark transition-colors">상세 문의</a>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-surface rounded-2xl p-2 shadow-sm border border-border hover:shadow-lift hover:border-primary/20 transition-all duration-300 group reveal-on-scroll">
+                    <div class="overflow-hidden rounded-xl h-48 mb-4 relative">
+                        <div class="absolute inset-0 bg-dark/20 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1634973357973-1e3d64b150c7?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Cold Chain" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="px-4 pb-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-heading font-semibold text-lg text-dark">콜드체인 (신선물류)</h3>
+                            <i data-lucide="thermometer-snowflake" class="w-5 h-5 text-primary"></i>
+                        </div>
+                        <p class="text-sm text-muted mb-4">냉동/냉장 화물을 위한 온습도 관제 특수 운송.</p>
+                        <a href="#book" class="text-xs font-medium text-primary uppercase tracking-wider hover:text-dark transition-colors">상세 문의</a>
+                    </div>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="bg-surface rounded-2xl p-2 shadow-sm border border-border hover:shadow-lift hover:border-primary/20 transition-all duration-300 group reveal-on-scroll delay-100">
+                    <div class="overflow-hidden rounded-xl h-48 mb-4 relative">
+                        <div class="absolute inset-0 bg-dark/20 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Consulting" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="px-4 pb-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-heading font-semibold text-lg text-dark">물류 컨설팅</h3>
+                            <i data-lucide="bar-chart-2" class="w-5 h-5 text-primary"></i>
+                        </div>
+                        <p class="text-sm text-muted mb-4">물류 프로세스 진단 및 비용 절감을 위한 최적의 솔루션 제안.</p>
+                        <a href="#book" class="text-xs font-medium text-primary uppercase tracking-wider hover:text-dark transition-colors">상세 문의</a>
+                    </div>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="bg-surface rounded-2xl p-2 shadow-sm border border-border hover:shadow-lift hover:border-primary/20 transition-all duration-300 group reveal-on-scroll delay-200">
+                    <div class="overflow-hidden rounded-xl h-48 mb-4 relative">
+                        <div class="absolute inset-0 bg-dark/20 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1565514020176-3733072b220c?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Project Cargo" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="px-4 pb-4">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-heading font-semibold text-lg text-dark">프로젝트 화물</h3>
+                            <i data-lucide="container" class="w-5 h-5 text-primary"></i>
+                        </div>
+                        <p class="text-sm text-muted mb-4">초중량물 및 특수 설비 운송을 위한 전문 서비스.</p>
+                        <a href="#book" class="text-xs font-medium text-primary uppercase tracking-wider hover:text-dark transition-colors">상세 문의</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-dark text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-primaryDark/50 to-transparent"></div>
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 lg:grid-cols-4 gap-8 text-center relative z-10">
+            <div class="reveal-on-scroll">
+                <span class="block text-4xl lg:text-5xl font-heading font-semibold text-accent mb-2 counter" data-target="50000">0</span>
+                <span class="text-sm text-white/70">연간 배송 처리</span>
+            </div>
+            <div class="reveal-on-scroll delay-100">
+                <span class="block text-4xl lg:text-5xl font-heading font-semibold text-accent mb-2 counter" data-target="150">0</span>
+                <span class="text-sm text-white/70">운영 차량 및 장비</span>
+            </div>
+            <div class="reveal-on-scroll delay-200">
+                <span class="block text-4xl lg:text-5xl font-heading font-semibold text-accent mb-2 counter" data-target="1200">0</span>
+                <span class="text-sm text-white/70">파트너 기업</span>
+            </div>
+            <div class="reveal-on-scroll delay-300">
+                <span class="block text-4xl lg:text-5xl font-heading font-semibold text-accent mb-2 counter" data-target="99">0</span>
+                <span class="text-sm text-white/70">% 정시 배송율</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-24 bg-surfaceHighlight">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between mb-12">
+                <div>
+                    <h2 class="font-heading font-semibold text-3xl text-dark">고객 성공 사례</h2>
+                    <div class="flex items-center gap-2 mt-2">
+                        <div class="flex text-yellow-400">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <span class="text-sm text-muted">파트너 만족도 4.9/5</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Review 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-border hover:border-primary/30 transition-colors reveal-on-scroll">
+                    <p class="text-darkText italic mb-6">"성진물류의 3PL 서비스를 도입한 후 배송 오류가 제로에 가까워졌습니다. 덕분에 저희는 마케팅에만 집중할 수 있게 되었죠."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-surfaceHighlight rounded-full flex items-center justify-center text-primary font-bold">KH</div>
+                        <div>
+                            <p class="font-semibold text-sm text-dark">김현수 대표</p>
+                            <p class="text-xs text-muted">(주)데일리커머스</p>
+                        </div>
+                        <i data-lucide="quote" class="w-8 h-8 text-border ml-auto opacity-50"></i>
+                    </div>
+                </div>
+                <!-- Review 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-border hover:border-primary/30 transition-colors reveal-on-scroll delay-100">
+                    <p class="text-darkText italic mb-6">"급하게 수출 물량이 늘어나서 당황했는데, 성진물류의 유연한 대응 덕분에 납기를 완벽하게 맞출 수 있었습니다."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-dark/5 rounded-full flex items-center justify-center text-dark font-bold">PJ</div>
+                        <div>
+                            <p class="font-semibold text-sm text-dark">박지영 이사</p>
+                            <p class="text-xs text-muted">테크솔루션 글로벌팀</p>
+                        </div>
+                        <i data-lucide="quote" class="w-8 h-8 text-border ml-auto opacity-50"></i>
+                    </div>
+                </div>
+                <!-- Review 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-border hover:border-primary/30 transition-colors reveal-on-scroll delay-200">
+                    <p class="text-darkText italic mb-6">"신선 식품 배송은 온도가 생명인데, 콜드체인 시스템이 정말 체계적입니다. 고객 클레임이 현저히 줄었습니다."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center text-accent font-bold">LM</div>
+                        <div>
+                            <p class="font-semibold text-sm text-dark">이민호 점장</p>
+                            <p class="text-xs text-muted">프레시푸드 마켓</p>
+                        </div>
+                        <i data-lucide="quote" class="w-8 h-8 text-border ml-auto opacity-50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Appointment Form Section -->
+    <section id="book" class="py-24 bg-white relative">
+        <div class="max-w-4xl mx-auto px-6 relative z-10">
+            <div class="bg-surface rounded-3xl p-8 md:p-12 shadow-2xl shadow-primary/5 border border-border">
+                <div class="text-center mb-10">
+                    <h2 class="font-heading font-semibold text-3xl text-dark mb-2">무료 견적 상담</h2>
+                    <p class="text-muted">아래 정보를 입력해주시면 담당자가 신속하게 연락드리겠습니다.</p>
+                </div>
+
+                <form id="bookingForm" class="space-y-6" onsubmit="event.preventDefault(); handleSubmit();">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Name -->
+                        <div class="input-group">
+                            <input type="text" id="name" class="input-field" placeholder=" " required="">
+                            <label for="name" class="input-label">성함 / 담당자명</label>
+                        </div>
+                        <!-- Company -->
+                        <div class="input-group">
+                            <input type="text" id="company" class="input-field" placeholder=" " required="">
+                            <label for="company" class="input-label">회사명</label>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Phone -->
+                        <div class="input-group">
+                            <input type="tel" id="phone" class="input-field" placeholder=" " required="">
+                            <label for="phone" class="input-label">연락처</label>
+                        </div>
+                        <!-- Email -->
+                        <div class="input-group">
+                            <input type="email" id="email" class="input-field" placeholder=" " required="">
+                            <label for="email" class="input-label">이메일</label>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Custom Select Dropdown -->
+                        <div class="custom-select-wrapper" onclick="this.classList.toggle('open')">
+                            <div class="custom-select-trigger text-sm text-darkText">
+                                <span id="selected-treatment">관심 서비스 선택</span>
+                                <i data-lucide="chevron-down" class="w-4 h-4 text-primary"></i>
+                            </div>
+                            <div class="custom-select-options text-sm">
+                                <div class="custom-option" onclick="selectOption('일반 화물 운송')">일반 화물 운송</div>
+                                <div class="custom-option" onclick="selectOption('3PL / 풀필먼트')">위험물류</div>
+                                <div class="custom-option" onclick="selectOption('해상/항공 수출입')">해상/항공 수출입</div>
+                                <div class="custom-option" onclick="selectOption('콜드체인')">콜드체인 (냉동/냉장물류)</div>
+                                <div class="custom-option" onclick="selectOption('물류 컨설팅')">물류 컨설팅</div>
+                            </div>
+                            <input type="hidden" name="treatment" id="treatmentInput">
+                        </div>
+
+                         <!-- Expected Volume/Time -->
+                         <div class="custom-select-wrapper" onclick="this.classList.toggle('open')">
+                             <div class="custom-select-trigger text-sm text-darkText">
+                                <span id="selected-time">월 예상 물동량</span>
+                                <i data-lucide="box" class="w-4 h-4 text-primary"></i>
+                            </div>
+                             <div class="custom-select-options text-sm">
+                                <div class="custom-option" onclick="selectTime('월 100건 미만')">월 100건 미만</div>
+                                <div class="custom-option" onclick="selectTime('월 100~500건')">월 100~500건</div>
+                                <div class="custom-option" onclick="selectTime('월 500~1,000건')">월 500~1,000건</div>
+                                <div class="custom-option" onclick="selectTime('월 1,000건 이상')">월 1,000건 이상</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Message -->
+                    <div class="input-group">
+                        <textarea id="message" rows="3" class="input-field" placeholder=" "></textarea>
+                        <label for="message" class="input-label">문의사항 (화물 종류, 출발/도착지 등)</label>
+                    </div>
+
+                    <button type="submit" class="w-full bg-primary text-white font-medium py-4 rounded-lg shadow-lg shadow-primary/25 hover:bg-primaryDark hover:scale-[1.01] transition-all duration-300 flex items-center justify-center gap-2">
+                        견적 요청 보내기
+                    </button>
+                </form>
+
+                <!-- Success Message (Hidden by default) -->
+                <div id="successMessage" class="hidden text-center py-12">
+                    <div class="w-16 h-16 bg-surfaceHighlight rounded-full flex items-center justify-center mx-auto mb-4 text-primary">
+                        <i data-lucide="check" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-2xl font-heading font-semibold text-dark mb-2">문의가 접수되었습니다!</h3>
+                    <p class="text-muted">담당자가 검토 후 빠른 시일 내에 연락드리겠습니다.</p>
+                    <button onclick="resetForm()" class="mt-6 text-primary font-medium hover:underline">추가 문의하기</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Contact & Footer -->
+    <footer class="bg-dark pt-20 pb-10 text-white/80 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                
+                <!-- Brand -->
+                <div>
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white">
+                            <i data-lucide="package" class="w-5 h-5"></i>
+                        </div>
+                        <span class="font-heading font-bold text-xl tracking-tight text-white">SUNGJIN<span class="text-primaryLight">LOGIStics</span></span>
+                    </div>
+                    <p class="text-sm leading-relaxed text-white/60 mb-6">
+                        (주)성진물류는 신뢰와 혁신을 바탕으로 고객의 물류 경쟁력을 높이는 최고의 파트너가 되겠습니다.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors"><i data-lucide="facebook" class="w-4 h-4"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors"><i data-lucide="instagram" class="w-4 h-4"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+                    </div>
+                </div>
+
+                <!-- Contact Info -->
+                <div>
+                    <h4 class="text-white font-heading font-semibold mb-6">고객센터</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-accent mt-0.5"></i>
+                            <span>경기도 군포시 송부로 95번길 44, 101호<br>성진사무실 1층</span>
+                        </li>
+                        <li class="flex items-center gap-3 group cursor-pointer">
+                            <i data-lucide="phone" class="w-5 h-5 text-accent group-hover:scale-110 transition-transform"></i>
+                            <a href="tel:031-391-7274" class="hover:text-accent transition-colors">031-391-7274</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="mail" class="w-5 h-5 text-accent"></i>
+                            <a href="mailto:contact@sjlogis.co.kr" class="hover:text-accent transition-colors">contact@sjlogis.co.kr</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Timings -->
+                <div>
+                    <h4 class="text-white font-heading font-semibold mb-6">운영 시간</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li class="flex justify-between border-b border-white/10 pb-2">
+                            <span>평일</span>
+                            <span class="text-white">09:00 - 18:00</span>
+                        </li>
+                        <li class="flex justify-between border-b border-white/10 pb-2">
+                            <span>토요일</span>
+                            <span class="text-white">09:00 - 13:00</span>
+                        </li>
+                        <li class="flex justify-between pt-2">
+                            <span>일요일/공휴일</span>
+                            <span class="text-accent">휴무</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Map -->
+                <div class="rounded-xl overflow-hidden h-48 bg-gray-800 relative group">
+                    <!-- Placeholder Map Image -->
+                    <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&amp;fit=crop&amp;w=600&amp;q=80" alt="Map Location" class="w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity">
+                    <a href="#" class="absolute inset-0 flex items-center justify-center bg-dark/20 group-hover:bg-dark/40 transition-colors">
+                        <span class="bg-white text-dark px-4 py-2 rounded-lg text-xs font-bold shadow-lg flex items-center gap-2">
+                            <i data-lucide="navigation" class="w-3 h-3"></i> 길찾기
+                        </span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-white/40">
+                <p>© 2023 Sungjin Logistics Co., Ltd. All rights reserved.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white transition-colors">개인정보처리방침</a>
+                    <a href="#" class="hover:text-white transition-colors">이용약관</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Reveal on Scroll Animation
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    
+                    // Trigger Counter Animation
+                    const counters = entry.target.querySelectorAll('.counter');
+                    if(counters.length > 0) {
+                        counters.forEach(counter => {
+                            const target = +counter.getAttribute('data-target');
+                            const duration = 2000; // ms
+                            const increment = target / (duration / 16); // 60fps
+                            
+                            let current = 0;
+                            const updateCounter = () => {
+                                current += increment;
+                                if(current < target) {
+                                    // Formatting for Korean numbers could be added here, but simple text is fine
+                                    counter.innerText = Math.ceil(current).toLocaleString() + (target > 100 ? '+' : '');
+                                    requestAnimationFrame(updateCounter);
+                                } else {
+                                    counter.innerText = target.toLocaleString() + (target > 100 ? '+' : '');
+                                }
+                            };
+                            updateCounter();
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => observer.observe(el));
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-sm', 'bg-white/95');
+                nav.classList.remove('bg-white/80');
+            } else {
+                nav.classList.remove('shadow-sm', 'bg-white/95');
+                nav.classList.add('bg-white/80');
+            }
+        });
+
+        // Form Handling
+        function selectOption(value) {
+            document.getElementById('selected-treatment').innerText = value;
+            document.getElementById('selected-treatment').classList.add('text-dark');
+            document.getElementById('treatmentInput').value = value;
+        }
+
+        function selectTime(value) {
+            document.getElementById('selected-time').innerText = value;
+            document.getElementById('selected-time').classList.add('text-dark');
+        }
+
+        function handleSubmit() {
+            const form = document.getElementById('bookingForm');
+            const successMsg = document.getElementById('successMessage');
+            
+            // Simulate API call
+            const btn = form.querySelector('button');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i data-lucide="loader-2" class="w-5 h-5 animate-spin"></i> 전송 중...';
+            lucide.createIcons();
+
+            setTimeout(() => {
+                form.classList.add('hidden');
+                successMsg.classList.remove('hidden');
+                btn.innerHTML = originalText;
+            }, 1500);
+        }
+
+        function resetForm() {
+            document.getElementById('bookingForm').reset();
+            document.getElementById('bookingForm').classList.remove('hidden');
+            document.getElementById('successMessage').classList.add('hidden');
+            document.getElementById('selected-treatment').innerText = '관심 서비스 선택';
+            document.getElementById('selected-time').innerText = '월 예상 물동량';
+        }
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function(e) {
+            const dropdowns = document.querySelectorAll('.custom-select-wrapper');
+            dropdowns.forEach(dropdown => {
+                if (!dropdown.contains(e.target)) {
+                    dropdown.classList.remove('open');
+                }
+            });
+        });
+    </script>
+
+</body></html>
